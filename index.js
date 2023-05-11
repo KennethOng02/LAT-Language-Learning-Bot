@@ -3,7 +3,6 @@
 const line = require('@line/bot-sdk');
 const express = require('express');
 const configGet = require('config');
-const {TextAnalyticsClient, AzureKeyCredential} = require("@azure/ai-text-analytics");
 
 // Line config
 const configLine = {
@@ -13,7 +12,7 @@ const configLine = {
 
 // Azure Text Sentiment
 const endpoint = configGet.get('ENDPOINT');
-const apiKey = configGet.get('TEXT_ANALYTICS_API_KEY');
+const apiKey = configGet.get('TRANSLATOR_API_KEY');
 
 const client = new line.Client(configLine);
 
