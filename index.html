@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analyze Sample</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="key.js"></script>
+    <script type="module" src="main.js"></script>
+</head>
+<body>
+<h1 id="wrapper" style="font-size: 3rem;">LAT Language Learning Bot</h1>
+<br><br>
+<div id="wrapper">
+    <input type="text" name="inputImage" id="inputImage" value="https://p9.itc.cn/images01/20210409/39874c3bcdd1497783e9e45cfb085bda.jpeg" />
+    <button id="imageTextButton">Analyze</button>
+</div>
+<br><br>
+<div id="wrapper" style="width: 100%; display:table;">
+    <div id="jsonOutput" style="width: 50%; display:table-cell;">
+        JSON Response:
+        <br><br>
+        <textarea id="responseTextArea" class="UIInput" style="width:90%; height:400px;"></textarea>
+    </div>
+    <div id="imageDiv" style="width: 50%; display:table-cell;">
+        Source image:
+        <br><br>
+        <img id="sourceImage" width="400" />
+        <p id="picDescription"></p>
+    </div>
+</div>
+</body>
+</html>
