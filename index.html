@@ -11,8 +11,8 @@
 <h1 id="wrapper" style="font-size: 3rem;">LAT Language Learning Bot</h1>
 <br><br>
 <div id="wrapper">
-    <input type="text" name="inputImage" id="inputImage" value="https://p9.itc.cn/images01/20210409/39874c3bcdd1497783e9e45cfb085bda.jpeg" />
-    <button id="imageTextButton">Analyze</button>
+    <input type="text" name="inputText" id="inputText" value="https://p9.itc.cn/images01/20210409/39874c3bcdd1497783e9e45cfb085bda.jpeg" />
+    <button id="analyzeButton">Analyze</button>
 </div>
 <br><br>
 <div id="wrapper" style="width: 100%; display:table;">
@@ -26,6 +26,24 @@
         <br><br>
         <img id="sourceImage" width="400" />
         <p id="picDescription"></p>
+    </div>
+</div>
+<br><br>
+<div id="wrapper" style="width: 100%; display:table;">
+    <div id="jsonOutput" style="width: 33%; display:table-cell;">
+        Extracted Text
+        <br><br>
+        <textarea id="imageText" class="UIInput" style="width:90%; height:400px;"></textarea>
+    </div>
+    <div id="jsonOutput" style="width: 33%; display:table-cell;">
+        Translate
+        <br><br>
+        <textarea id="translateText" class="UIInput" style="width:90%; height:400px;"></textarea>
+    </div>
+    <div id="jsonOutput" style="width: 33%; display:table-cell;">
+        Voice
+        <br><br>
+        <textarea id="voice" class="UIInput" style="width:90%; height:400px;"></textarea>
     </div>
 </div>
 </body>

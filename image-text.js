@@ -4,7 +4,7 @@ export function imageText() {
     var uriBase = url + "vision/v3.2/read/analyze";
     
     //顯示分析的圖片
-    var sourceImageUrl = document.getElementById("inputImage").value;
+    var sourceImageUrl = document.getElementById("inputText").value;
     document.querySelector("#sourceImage").src = sourceImageUrl;
 
     //送出分析
@@ -53,6 +53,12 @@ export function imageText() {
             .done(function(data) {
                 // Show formatted JSON on webpage.
                 $("#responseTextArea").val(JSON.stringify(data, null, 2));
+                $("#imageText").empty();
+                for(var i = 0; i < data.analyzeResult.readResults.length; ++i) {
+                    for(var j = 0; j < data.analyzeResult.readResults[i].lines.length; ++j) {
+                        $("#imageText").append(data.analyzeResult.readResults[i].lines[j].text + "&#10;");
+                    }
+                }
             })
 
             .fail(function(jqXHR, textStatus, errorThrown) {
