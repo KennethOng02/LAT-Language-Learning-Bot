@@ -11,7 +11,11 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     //do something
-    $("#transButton").click(function(){
-        processTranslate();
-    });
+    // $("#transButton").click(function(){
+    //     processTranslate();
+    // });
+    $("#goal").change(function() {
+        var selectedValue = $(this).val();
+        processTranslate(selectedValue);
+      });
 });
