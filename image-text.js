@@ -23,8 +23,8 @@ export function imageText() {
         data: JSON.stringify({url: sourceImageUrl}),
     })
     .done(function(data, textStatus, jqXHR) {
-        $("#responseTextArea").val("Text submitted. " +
-            "Waiting 10 seconds to retrieve the recognized text.");
+        $("#imageText").val("Text submitted. " +
+            "\nWaiting 10 seconds to retrieve the recognized text.");
 
         // Note: The response may not be immediately available. Text
         // recognition is an asynchronous operation that can take a variable
@@ -52,11 +52,13 @@ export function imageText() {
 
             .done(function(data) {
                 // Show formatted JSON on webpage.
-                $("#responseTextArea").val(JSON.stringify(data, null, 2));
-                $("#imageText").empty();
+                // $("#responseTextArea").val(JSON.stringify(data, null, 2));
+                console.log(JSON.stringify(data, null, 2));
+                $("#imageText").val("");
                 for(var i = 0; i < data.analyzeResult.readResults.length; ++i) {
                     for(var j = 0; j < data.analyzeResult.readResults[i].lines.length; ++j) {
-                        $("#imageText").append(data.analyzeResult.readResults[i].lines[j].text + "&#10;");
+                        // $("#imageText").append(data.analyzeResult.readResults[i].lines[j].text + "&#10;");
+                        $("#imageText").val($("#imageText").val() + data.analyzeResult.readResults[i].lines[j].text + "\n");
                     }
                 }
             })

@@ -1,8 +1,8 @@
-export function processTranslate(selectedValue) {
+export function processTranslate(targetLanguage) {
     var uriBase = "https://api.cognitive.microsofttranslator.com/translate";
     var params = {
         "api-version": "3.0",
-        "to": selectedValue
+        "to": targetLanguage
     };
     //獲取要翻譯的文字
     var sourceTranslateText = $("#imageText").val();

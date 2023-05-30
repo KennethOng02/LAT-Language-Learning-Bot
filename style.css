@@ -1,21 +1,17 @@
 * {
    margin: 0;
    padding: 0;
+   background-color: #FEFCFF;
+   font-family: "Times New Roman", Times, serif;
    font-size: 1.2rem;
    font-weight: bold;
 }
 
-input {
+input, select {
    width: 70%;
    padding: 6px 10px;
    margin: 8px auto;
    text-align: center;
-}
-select {
-  width: 70%;
-  padding: 6px 10px;
-  margin: 8px auto;
-  text-align: center;
 }
 
 button {
@@ -46,4 +42,14 @@ button:hover {
 #picDescription{
    text-align: center;
    font-weight: bold; 
+}
+
+textarea {
+  border: 2px solid black;
+}
+
+.output-textarea > div {
+  width: 33%;
+  display:table-cell;
+  font-size: 1.5rem;
 }

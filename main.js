@@ -8,17 +8,11 @@ $(document).ready(function(){
     $("#analyzeButton").click(function(){
         imageText();
     });
-});
-
-$(document).ready(function(){
-    $("#goal").change(function() {
-        var selectedValue = $(this).val();
-        processTranslate(selectedValue);
-      });
-});
-
-$(document).ready(function(){
-    $("#playAudioButton").click(function() {
+    $("#translateLanguage").change(function() {
+        var targetLanguage = $(this).val();
+        processTranslate(targetLanguage);
+    });
+    $("#audioPlayButton").click(function() {
         var text = document.getElementById("imageText").value;
         textToSpeech(text);
     });

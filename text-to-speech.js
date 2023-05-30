@@ -26,6 +26,6 @@ export function textToSpeech(text) {
             synthesizer.close();
             synthesizer = undefined;
         }
-    );
+        );
     console.log("Now synthesizing to: " + "success");
 }
