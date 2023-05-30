@@ -10,5 +10,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "microsoft-cognitiveservices-speech-sdk": "^1.28.0"
+  }
 }

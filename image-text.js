@@ -14,7 +14,7 @@ export function imageText() {
         // Request header
         beforeSend: function(xhrObj){
             xhrObj.setRequestHeader("Content-Type","application/json");
-            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey_computerVision);
         },
 
         type: "POST",
@@ -44,7 +44,7 @@ export function imageText() {
                 // Request headers.
                 beforeSend: function(jqXHR){
                     jqXHR.setRequestHeader("Content-Type","application/json");
-                    jqXHR.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+                    jqXHR.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey_computerVision);
                 },
 
                 type: "GET",

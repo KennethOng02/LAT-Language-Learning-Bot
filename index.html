@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="key.js"></script>
+    <script src="https://aka.ms/csspeech/jsbrowserpackageraw"></script>
     <script type="module" src="main.js"></script>
 </head>
 <body>
@@ -13,9 +14,6 @@
 <div id="wrapper">
     <input type="text" name="inputText" id="inputText" value="https://p9.itc.cn/images01/20210409/39874c3bcdd1497783e9e45cfb085bda.jpeg" />
     <button id="analyzeButton">Analyze</button><br>
-
-    <!-- <input type="text" name="inputText" id="transText" value="Hello, what is your name?" />
-    <button id="transButton">Translate</button> -->
     <select id="goal">
         <option value="ar">阿拉伯文</option>
         <option value="yue">粵語</option>
@@ -28,13 +26,14 @@
         <option value="th">泰文</option>
         <option value="vi">越南文</option>
     </select>
+    <button id="playAudioButton">Play Audio</button><br>
 </div>
 <br><br>
 <div id="wrapper" style="width: 100%; display:table;">
     <div id="jsonOutput" style="width: 50%; display:table-cell;">
         JSON Response:
         <br><br>
-        <textarea id="responseTextArea" class="UIInput" style="width:90%; height:400px;"></textarea>
+        <textarea id="responseTextArea" class="UIInput" style="width:90%; height:400px;" readonly></textarea>
     </div>
     <div id="imageDiv" style="width: 50%; display:table-cell;">
         Source image:
@@ -48,7 +47,7 @@
     <div id="jsonOutput" style="width: 33%; display:table-cell;">
         Extracted Text
         <br><br>
-        <textarea id="imageText" class="UIInput" style="width:90%; height:400px;"></textarea>
+        <textarea id="imageText" class="UIInput" style="width:90%; height:400px;" readonly></textarea>
     </div>
     <div id="jsonOutput" style="width: 33%; display:table-cell;">
         Translate
@@ -58,7 +57,7 @@
     <div id="jsonOutput" style="width: 33%; display:table-cell;">
         Voice
         <br><br>
-        <textarea id="voice" class="UIInput" style="width:90%; height:400px;"></textarea>
+        <audio id="audioSrc" autostart="0" autostart="false" preload ="none" name="media" controls>
     </div>
 </div>
 </body>
