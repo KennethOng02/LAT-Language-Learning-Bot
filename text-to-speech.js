@@ -1,9 +1,49 @@
-export function textToSpeech(text) {
+export function textToSpeech(text,lan) {
     var SpeechSpeechSDK;
     const speechConfig = SpeechSDK.SpeechConfig.fromSubscription(subscriptionKey_speech, "eastus");
 
+
     // The language of the voice that speaks.
-    speechConfig.speechSynthesisVoiceName = "zh-TW-HsiaoChenNeural"; 
+   switch(lan)
+    {
+        case "zh-Hant" :
+            speechConfig.speechSynthesisVoiceName = "zh-TW-HsiaoChenNeural";
+            break;
+        case "en" :
+            speechConfig.speechSynthesisVoiceName = "en-US-AshleyNeural";
+            break;
+        case "fr" :
+            speechConfig.speechSynthesisVoiceName = "fr-FR-JacquelineNeural";
+            break;
+        case "de" :
+            speechConfig.speechSynthesisVoiceName = "de-DE-ChristophNeural";
+            break;
+        case "ja" :
+            speechConfig.speechSynthesisVoiceName = "ja-JP-MayuNeural";
+            break;
+        case "ko" :
+            speechConfig.speechSynthesisVoiceName = "ko-KR-JiMinNeural";
+            break;
+        case "ru" :
+            speechConfig.speechSynthesisVoiceName = "ru-RU-DariyaNeural";
+            break;
+        case "th" :
+            speechConfig.speechSynthesisVoiceName = "th-TH-PremwadeeNeural";
+            break;
+        case "vi" :
+            speechConfig.speechSynthesisVoiceName = "vi-VN-HoaiMyNeural";
+            break;
+        case "ar" :
+            speechConfig.speechSynthesisVoiceName = "ar-DZ-IsmaelNeural";
+            break;
+        case "yue" :
+            speechConfig.speechSynthesisVoiceName = "zh-TW-HsiaoChenNeural";
+            break;
+        default :
+            speechConfig.speechSynthesisVoiceName = "zh-TW-HsiaoChenNeural";
+            text = "很抱歉，尚未支援辨識此語言" 
+            break;
+    } 
 
     // Create the speech synthesizer.
     var synthesizer = new SpeechSDK.SpeechSynthesizer(speechConfig);

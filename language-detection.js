@@ -35,8 +35,8 @@ export function languageDetection() {
         }`,
     })
     .done(function(data) {
-        // console.log(JSON.stringify(data, null, 2));
-        // console.log(data.results.documents[0].detectedLanguage.iso6391Name);
+        console.log(JSON.stringify(data, null, 2));
+        console.log(data.results.documents[0].detectedLanguage.iso6391Name);
         return data.results.documents[0].detectedLanguage.iso6391Name;
     })
     .fail(function(jqXHR, textStatus, errorThrown) {

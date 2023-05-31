@@ -23,10 +23,11 @@ export function processTranslate(targetLanguage) {
     })
     .done(function(data) {
         //显示 JSON 内容
-        $("#responseTextArea").val(JSON.stringify(data, null, 2));
+        console.log(JSON.stringify(data, null, 2));
         //修改下面這一行將翻譯結果顯示於右方
         $("#translateResult").text(data[0].translations[0].text);
-
+        console.log(data[0].detectedLanguage.language);
+        return data[0].detectedLanguage.language;
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
         //丢出錯誤訊息
@@ -34,4 +35,5 @@ export function processTranslate(targetLanguage) {
         errorString += (jqXHR.responseText === "") ? "" : jQuery.parseJSON(jqXHR.responseText).message;
         alert(errorString);
     });
+    return undefined;
 };
