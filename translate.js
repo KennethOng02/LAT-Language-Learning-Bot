@@ -26,8 +26,6 @@ export function processTranslate(targetLanguage) {
         console.log(JSON.stringify(data, null, 2));
         //修改下面這一行將翻譯結果顯示於右方
         $("#translateResult").text(data[0].translations[0].text);
-        console.log(data[0].detectedLanguage.language);
-        return data[0].detectedLanguage.language;
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
         //丢出錯誤訊息
