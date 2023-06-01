@@ -14,10 +14,11 @@ $(document).ready(function(){
     });
 
     $("#audioPlayButton").click(function() {
-        textToSpeech(
-            ($("#translateLanguage").val() == "zh-Hant") ? 
-            $("#imageText").val() : 
-            $("#translateResult").val()
-        );
+        
+            if ($("#translateLanguage").val() == "zh-Hant")  
+                textToSpeech($("#imageText").val(),true);
+            else 
+                textToSpeech($("#translateResult").val(),false);
+            
     });
 });

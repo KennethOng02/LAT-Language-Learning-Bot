@@ -16,7 +16,7 @@ const speaker = new Map([
     ["zh_cht", "yue-CN-XiaoMinNeural"],
 ]);
 
-export function textToSpeech(text) {
+export function textToSpeech(text,picture) {
     var url = "https://ej0qu6.cognitiveservices.azure.com/";
     var uriBase = url + "language/:analyze-text?api-version=2022-05-01";
 
@@ -50,10 +50,12 @@ export function textToSpeech(text) {
     .done(function(data) {
         console.log(JSON.stringify(data, null, 2));
         console.log(data.results.documents[0].detectedLanguage.iso6391Name);
-        var language = data.results.documents[0].detectedLanguage.iso6391Name;
-
+        if(picture == true)
+            var language = data.results.documents[0].detectedLanguage.iso6391Name;
+        else
+            var language = $("#translateLanguage").val(); 
         const speechConfig = SpeechSDK.SpeechConfig.fromSubscription(subscriptionKey_speech, "eastus");
-        speechConfig.speechSynthesisVoiceName = speaker.get(data.results.documents[0].detectedLanguage.iso6391Name);
+        speechConfig.speechSynthesisVoiceName = speaker.get(language);
 
         if(language == undefined) {
             speechConfig.speechSynthesisVoiceName = "zh-TW-HsiaoChenNeural";
