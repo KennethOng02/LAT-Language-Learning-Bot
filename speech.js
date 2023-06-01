@@ -10,6 +10,9 @@ const speaker = new Map([
     ["th", "th-TH-PremwadeeNeural"],
     ["vi", "vi-VN-HoaiMyNeural"],
     ["ar", "ar-DZ-IsmaelNeural"],
+    ["es","es-ES-DarioNeural"],
+    ["it","it-IT-ElsaNeural"],
+    ["pt","pt-BR-BrendaNeural"],
     ["zh_cht", "yue-CN-XiaoMinNeural"],
 ]);
 
