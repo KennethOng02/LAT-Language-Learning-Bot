@@ -7,11 +7,11 @@
   font-weight: bold;
 }
 
-#wrapper {
+.wrapper {
   text-align: center;
 }
  
-#wrapper > div {
+.wrapper > div {
   text-align: center;
 }
 

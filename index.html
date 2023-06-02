@@ -10,11 +10,14 @@
     <script type="module" src="main.js"></script>
 </head>
 <body>
-<h1 id="wrapper" style="font-size: 3rem;">LAT Language Learning Bot</h1>
+<h1 class="wrapper" style="font-size: 3rem;">LAT Language Learning Bot</h1>
 <br><br>
-<div id="wrapper">
-    <input type="text" name="inputText" id="inputText" value="https://p9.itc.cn/images01/20210409/39874c3bcdd1497783e9e45cfb085bda.jpeg" />
-    <button id="analyzeButton">Analyze</button><br>
+<div class="wrapper">
+    <div class="wrapper">
+        <input type="text" name="inputText" id="inputText" value="https://p9.itc.cn/images01/20210409/39874c3bcdd1497783e9e45cfb085bda.jpeg" />
+        <input type="file" name="inputImageFile" id="inputImageFile" data-target="file-uploader" accept="images/*">
+        <button id="analyzeButton">Analyze</button>
+    </div>
     <select id="translateLanguage">
         <option disabled selected value> -- select language -- </option>
         <option value="zh-Hant">繁體中文</option>
@@ -35,7 +38,7 @@
     <button type="button" id="audioPlayButton">Play Audio</button><br>
 </div>
 <br><br>
-<div id="wrapper" style="width: 100%; display:table;">
+<div class="wrapper" style="width: 100%; display:table;">
     <!-- <div id="jsonOutput" style="width: 50%; display:table-cell;"> -->
         <!-- JSON Response: -->
         <!-- <br><br> -->
@@ -49,7 +52,7 @@
     </div>
 </div>
 <br><br>
-<div id="wrapper" class="output-textarea" style="width: 100%; display:table;">
+<div class="output-textarea wrapper" style="width: 100%; display:table;">
     <div>
         Extracted Text
         <br><br>

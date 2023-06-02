@@ -1,6 +1,6 @@
 'use strict'
 
-import { imageText } from './image-text.js';
+import { imageText, imageTextFile } from './image-text.js';
 import { textToSpeech } from './speech.js';
 import { processTranslate } from './translate.js';
 
@@ -9,16 +9,18 @@ $(document).ready(function(){
         imageText();
     });
 
+    $("#inputImageFile").change(function(e){
+        imageTextFile(e.target.files[0]);
+    });
+
     $("#translateLanguage").change(async function() {
         processTranslate($(this).val());
     });
 
     $("#audioPlayButton").click(function() {
-        
             if ($("#translateLanguage").val() == "zh-Hant")  
                 textToSpeech($("#imageText").val(),true);
             else 
                 textToSpeech($("#translateResult").val(),false);
-            
     });
 });
