@@ -1,6 +1,6 @@
 const speaker = new Map([
     ["zh-Hant", "zh-TW-HsiaoChenNeural"],
-    ["zh_chs", "zh-CN-XiaochenNeural"],
+    ["zh-Hans", "zh-CN-XiaochenNeural"],
     ["en", "en-US-AshleyNeural"],
     ["fr", "fr-FR-JacquelineNeural"],
     ["de", "de-DE-ChristophNeural"],
@@ -10,62 +10,48 @@ const speaker = new Map([
     ["th", "th-TH-PremwadeeNeural"],
     ["vi", "vi-VN-HoaiMyNeural"],
     ["ar", "ar-DZ-IsmaelNeural"],
-    ["es","es-ES-DarioNeural"],
-    ["it","it-IT-ElsaNeural"],
-    ["pt","pt-BR-BrendaNeural"],
-    ["zh_cht", "yue-CN-XiaoMinNeural"],
+    ["yue", "yue-CN-XiaoMinNeural"],
 ]);
 
-export function textToSpeech(text,picture) {
-    var url = "https://ej0qu6.cognitiveservices.azure.com/";
-    var uriBase = url + "language/:analyze-text?api-version=2022-05-01";
+export function textToSpeech(text) {
+    var uriBase = "https://api.cognitive.microsofttranslator.com/translate";
+    var targetLanguage = $('#translateLanguage').val();
+    var params = {
+        "api-version": "3.0",
+        "to": targetLanguage,
+    };
 
+    //發送翻譯要求
     $.ajax({
-        url: uriBase,
-
+        url: uriBase + "?" + $.param(params),
         // Request header
         beforeSend: function(xhrObj){
             xhrObj.setRequestHeader("Content-Type","application/json");
-            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey_language);
+            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey_translate);
+            // 如果不是設置全域，就要加上這一行指定你所選擇的區域
+            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Region", "eastus");
         },
-
         type: "POST",
-
         // Request body
-        data: `{
-            "kind": "LanguageDetection",    
-            "parameters": {
-                "modelVersion": "latest"
-            },
-            "analysisInput":{
-                "documents":[
-                    {
-                        "id":"1",
-                        "text": "${text}"
-                    }
-                ]
-            }
-        }`,
+        data: JSON.stringify([{"Text": text}]),
     })
     .done(function(data) {
         console.log(JSON.stringify(data, null, 2));
-        console.log(data.results.documents[0].detectedLanguage.iso6391Name);
-        if(picture == true)
-            var language = data.results.documents[0].detectedLanguage.iso6391Name;
-        else
-            var language = $("#translateLanguage").val(); 
+        console.log(data[0].detectedLanguage.language);
+        var language = data[0].detectedLanguage.language;
+        
         const speechConfig = SpeechSDK.SpeechConfig.fromSubscription(subscriptionKey_speech, "eastus");
-        speechConfig.speechSynthesisVoiceName = speaker.get(language);
-
-        if(language == undefined) {
+        speechConfig.speechSynthesisVoiceName = speaker.get(data[0].detectedLanguage.language);
+        
+        if(!language) {
             speechConfig.speechSynthesisVoiceName = "zh-TW-HsiaoChenNeural";
             text = "很抱歉，尚未支援辨識此語言";
         }
         console.log(language);
         console.log(text);
-
+        
         var synthesizer = new SpeechSDK.SpeechSynthesizer(speechConfig);
-
+        
         synthesizer.speakTextAsync(
             text, 
             function (result) {
