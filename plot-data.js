@@ -1,22 +1,7 @@
 var data = [
   {
     values: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    labels: [
-      "zh-Hant",
-      "en",
-      "fr",
-      "de",
-      "ja",
-      "ko",
-      "es",
-      "pt",
-      "it",
-      "ru",
-      "th",
-      "vi",
-      "ar",
-      "yue",
-    ],
+    labels: ["zh-Hant","en","fr","de","ja","ko","es","pt","it","ru","th","vi","ar","yue"],
     type: "pie",
   },
 ];
@@ -32,22 +17,7 @@ export function plotData() {
   $.getJSON(url)
     .done(function (msg) {
       console.log(msg);
-      let targetLanguages = [
-        "zh-Hant",
-        "en",
-        "fr",
-        "de",
-        "ja",
-        "ko",
-        "es",
-        "pt",
-        "it",
-        "ru",
-        "th",
-        "vi",
-        "ar",
-        "yue",
-      ];
+      let targetLanguages = ["zh-Hant","en","fr","de","ja","ko","es","pt","it","ru","th","vi","ar","yue"];
       //data[0].values = Array(targetLanguages.length).fill(0);
       for (let i = 0; i < targetLanguages.length; i++) {
         data[0].values[i] = 0;
