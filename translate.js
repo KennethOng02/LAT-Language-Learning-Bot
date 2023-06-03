@@ -26,6 +26,16 @@ export function processTranslate(targetLanguage) {
         console.log(JSON.stringify(data, null, 2));
         //修改下面這一行將翻譯結果顯示於右方
         $("#translateResult").text(data[0].translations[0].text);
+        //Send to server
+        axios.post('https://huiwen-json-server-05100000.azurewebsites.net/reviews', {
+            targetLanguage: targetLanguage
+        })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
         //丢出錯誤訊息

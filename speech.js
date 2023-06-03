@@ -11,6 +11,9 @@ const speaker = new Map([
     ["vi", "vi-VN-HoaiMyNeural"],
     ["ar", "ar-DZ-IsmaelNeural"],
     ["yue", "yue-CN-XiaoMinNeural"],
+    ["es","es-ES-LiaNeural"],
+    ["pt","pt-BR-DonatoNeural"],
+    ["it","it-IT-ImeldaNeural"]
 ]);
 
 export function textToSpeech(text) {
