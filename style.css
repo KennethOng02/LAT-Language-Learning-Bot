@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  background-color: #FEFCFF;
   font-family: "Times New Roman", Times, serif;
   font-size: 1.2rem;
   font-weight: bold;
@@ -9,13 +10,12 @@
 .wrapper {
   text-align: center;
 }
-
+ 
 .wrapper > div {
   text-align: center;
 }
 
-input,
-select {
+input, select {
   width: 70%;
   padding: 6px 10px;
   margin: 8px auto;
@@ -35,13 +35,13 @@ button {
 }
 
 button:hover {
-  background-color: #4caf50; /* Green */
-  color: white;
+   background-color: #4CAF50; /* Green */
+   color: white;
 }
-
-#picDescription {
-  text-align: center;
-  font-weight: bold;
+ 
+#picDescription{
+   text-align: center;
+   font-weight: bold; 
 }
 
 textarea {
@@ -52,6 +52,6 @@ textarea {
 
 .output-textarea > div {
   width: 33%;
-  display: table-cell;
+  display:table-cell;
   font-size: 1.5rem;
 }

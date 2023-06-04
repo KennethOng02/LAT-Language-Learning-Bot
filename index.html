@@ -7,6 +7,7 @@
     <script src="key.js"></script>
     <script src="https://aka.ms/csspeech/jsbrowserpackageraw"></script>
     <script src="https://cdn.plot.ly/plotly-2.20.0.min.js" charset="utf-8"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="module" src="main.js"></script>
 </head>
 <body>
@@ -14,7 +15,7 @@
 <br><br>
 <div class="wrapper">
     <div class="wrapper">
-        <input type="text" name="inputText" id="inputText" value="https://p9.itc.cn/images01/20210409/39874c3bcdd1497783e9e45cfb085bda.jpeg" />
+        <input type="text" name="inputText" id="inputText" value="" />
         <input type="file" name="inputImageFile" id="inputImageFile" data-target="file-uploader" accept="images/*">
         <button id="analyzeButton">Analyze</button>
     </div>
@@ -68,11 +69,6 @@
         <br><br>
         <audio id="audioSrc" autostart="0" autostart="false" preload ="none" name="media" controls>
     </div>
-</div>
-<br><br>
-<div class="wrapper">
-    Analysis
-    <div id="plotData"></div>
 </div>
 </body>
 </html>
