@@ -18,9 +18,9 @@ $(document).ready(function(){
     });
 
     $("#audioPlayButton").click(function() {
-            if ($("#translateLanguage").val() == "zh-Hant")  
-                textToSpeech($("#imageText").val(),true);
-            else 
-                textToSpeech($("#translateResult").val(),false);
+        if ($("#translateLanguage").val() == "zh-Hant")  
+            textToSpeech($("#imageText").val(),true);
+        else 
+            textToSpeech($("#translateResult").val(),false);
     });
 });
